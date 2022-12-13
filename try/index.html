@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main></main>
+    <template id="login">
+        <h1>Welcome to the fucking game</h1>
+        <form action="">
+            <h3>please sign in</h3>
+            <label>user name</label>
+            <input type="text" id="name" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
+            <label>password</label>
+            <input type="password" id="password" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
+            <input type="submit" id="btnToGame">
+        </form>
+        <button id="btnToSignUp">click here to sign up</button>
+    </template>
+    <template id="game">
+        <h1>your grandmother is marta</h1>
+        <button class="btnToLogin">click here to login</button>
+    </template>
+    <template id="signUp">
+        <h1>inaal tizak</h1>
+        <form action="">
+            <h3>please signup</h3>
+            <label>user name</label>
+            <input type="text" id="name1" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
+            <label>password</label>
+            <input type="password" id="password1" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
+            <button type="submit" id="regButton" value="register">sign up
+        </form>
+        <button class="btnToLogin">click here to login</button>
+    </template>
+    <script src="script.js"></script>
+</body>
+
+</html>
