@@ -1,7 +1,7 @@
 let loginUserName = "";
 let loginPassword = "";
 let friendList = "";
-// let localStorageArr = [];
+// // let localStorageArr = [];
 let newClient = {};
 
 
@@ -9,6 +9,7 @@ class user {
     constructor(name, password) {
         this.name = name;
         this.password = password;
+        this.id = "newClient";
         this.friends = { [name]: [] };
     }
 }
@@ -17,9 +18,8 @@ function checkIfUserExists() {
     // creates the elements
     loginUserName = document.getElementById("loginUserName");
     loginPassword = document.getElementById("loginPassword");
-    let userObj = { name: loginUserName.value, password: loginPassword.value }
-    return dataBase.postUserName(userObj);
-    return server.serving("POST", userObj)
+    let userObj = { name: loginUserName.value, password: loginPassword.value, id:"checkIfUserExists" }
+    return server.serving(userObj);
 }
 
 function createNewClient() {
@@ -28,7 +28,7 @@ function createNewClient() {
     let regUserName = document.getElementById("registerUserName");
     //Creat the new client if there not existing one;
     newClient = new user(regUserName.value, regPassword.value);
-    let response = dataBase.postToLocalStorage(newClient);
+    let response = server.serving(newClient);
     if (regPassword.value.length > 0 && regUserName.value.length > 0 && response) {
         switchTemp();
     }
@@ -53,16 +53,18 @@ function callAllFriends() {
 
 function addFriendFunction() {
     let friendPrompt = prompt("Type In your new friend");
+    let addFriend = {userName: loginUserName.value, friendName: friendPrompt, id:"addFriend"};
     if (friendPrompt.length > 0) {
-        dataBase.postAddFriendFunction(loginUserName.value, friendPrompt);
+        server.serving(addFriend);
     }
 }
 
 
 function removeFriendFunction() {
     let friendPrompt = prompt("which friend would you like TO DESTROY!!!!!");
-    dataBase.postRemoveFriendFunction(loginUserName.value, friendPrompt);
+    let removeFriend = {userName: loginUserName.value, friendName: friendPrompt, id:"removeFriend"}
+    server.serving(removeFriend);
 }
 
-let dataBase = new DataBase();
+// let dataBase = new DataBase();
 

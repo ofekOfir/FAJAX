@@ -4,6 +4,11 @@ let switchers = "";
 let getAllFriendsBtn = "";
 let addFriendBtn = "";
 let removeFriendBtn = "";
+// let loginUserName = "";
+// let loginPassword = "";
+// let friendList = "";
+// // let localStorageArr = [];
+// let newClient = {};
 
 if (location.hash == "") {
     show("login")
@@ -84,3 +89,5 @@ window.addEventListener('hashchange', () => {
 
 
 
+let dataBase = new DataBase();
+let server = new Server();
