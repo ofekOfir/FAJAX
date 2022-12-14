@@ -21,11 +21,15 @@
             <input type="password" id="loginPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <button type="button"  id="btnToApp">enter</button>
         </form>
-        <button class="changePage" onclick="switchTemp(event)">click here to sign up</button>
+        <button class="changePage" >click here to sign up</button>
     </template>
     <template id="game">
         <h1>App</h1>
-        <button class="changePage" onclick="switchTemp(event)">click here to login</button>
+        <button class="changePage" >click here to login</button>
+        <button id="getAllFriends">show them</button>
+        <button id="removeFriend">remove 1</button>
+        <button id="addFriend">add 1</button>
+        <div id="friendList"></div>
     </template>
 
     <template id="signUp">
@@ -38,11 +42,12 @@
             <input type="password" id="registerPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <button type="button" id="regButton">register</button>
         </form>
-        <button type="button" class="changePage" onclick="switchTemp(event)">click here to login</button>
+        <button type="button" class="changePage" >click here to login</button>
     </template>
     
-    <script src="/js/register.js"></script>
-    <script src="/js/login.js"></script>
+    <!-- <script src="/js/register.js"></script>
+    <script src="/js/login.js"></script> -->
+    <script src="/js/dataBase.js"></script>
     <script src="/js/clientFile.js"></script>
     <script src="/js/SPA.js"></script>
 </body>

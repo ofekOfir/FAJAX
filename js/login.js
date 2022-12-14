@@ -1,6 +1,6 @@
-let loginUserName = "";
-let loginPassword = "";
-let localStorageArr = [];
+// let loginUserName = "";
+// let loginPassword = "";
+// let localStorageArr = [];
 
 
 
