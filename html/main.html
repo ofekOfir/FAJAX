@@ -12,6 +12,9 @@
 <body>
     <main></main>
     <template id="login">
+        <style>
+            @import url('/css/login.css');
+        </style>
         <h1>Login</h1>
         <form>
             <h3>please sign in</h3>
@@ -24,15 +27,23 @@
         <button class="changePage" >click here to sign up</button>
     </template>
     <template id="game">
+        <style>
+            @import url('/css/app.css');
+        </style>
         <h1>App</h1>
-        <button class="changePage" >click here to login</button>
+        <div id="buttonArea">
         <button id="getAllFriends">show them</button>
         <button id="removeFriend">remove 1</button>
-        <button id="addFriend">add 1</button>
+        <button id="addFriend">add 1</button></div>
         <div id="friendList"></div>
+        <button class="changePage" >click here to login</button>
     </template>
 
     <template id="signUp">
+        <style>
+        @import url('/css/register.css');
+        </style>
+
         <h1>Register</h1>
         <form>
             <h3>please signup</h3>

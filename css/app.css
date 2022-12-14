@@ -1,0 +1,15 @@
+body{
+    background: gold;
+}
+h1{
+
+}
+#buttonArea{
+    margin-left: 70%;
+    background: black;
+    width: 240px;
+}
+.changePage{
+    position: absolute;
+    bottom: 5%;
+}

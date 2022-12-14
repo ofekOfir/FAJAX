@@ -1,0 +1,22 @@
+body{
+    background: rgb(222, 140, 204);
+}
+body *{
+    margin-bottom: 100px;
+    margin-left: 20%;
+}
+form{
+    background: rgb(231, 35, 188);
+    width: 200px;
+    height: 200px;
+}
+form *{
+    margin-left: 10px;
+    display: block;
+    margin-bottom: 10px;
+    align-content: center;
+}
+.changePage{
+    position: absolute;
+    bottom: 5%;
+}
