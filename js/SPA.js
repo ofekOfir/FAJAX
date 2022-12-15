@@ -54,7 +54,7 @@ function popping() {
     show(newHash);
 }
 
-window.addEventListener('hashchange', keepEvents)
+window.addEventListener('hashchange', keepEvents);
 window.addEventListener('load',keepEvents)
 
 
@@ -66,7 +66,6 @@ let network = new Network();
 
 
 function keepEvents(){
-    console.log("dfdf")
     butArray = document.querySelectorAll('.changePage')
     for (let but of butArray) {
         but.addEventListener('click', switchTemp);
@@ -82,5 +81,13 @@ function keepEvents(){
         addFriendBtn.addEventListener("click", addFriendFunction);
         removeFriendBtn.addEventListener("click", removeFriendFunction);
         getAllFriendsBtn.addEventListener('click', callAllFriends)
+    }
+    if(location.hash!="#game"){
+        Fajax = new FAJAX();
+        Fajax.open("delete","removeCurrentUser");
+        Fajax.onload = function (){
+            return Fajax.response;
+        }
+        Fajax.send();
     }
 }

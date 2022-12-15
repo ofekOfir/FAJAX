@@ -3,9 +3,6 @@ class Network {
     this.method = method;
     this.url = url;
     this.data = data;
-
-    
-    
 }
 sendInformation(){
      return server.serving(this.method, this.url);

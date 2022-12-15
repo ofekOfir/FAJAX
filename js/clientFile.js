@@ -56,14 +56,16 @@ function callAllFriends() {
     Fajax.onload = function () {
         let contacts = Fajax.response;
         for (let obj of contacts) {
-            console.log("k");
-
-            if (obj[loginUserName.value]) {
-                console.log("keer");
-                for (let friend of obj[loginUserName.value]) {
-                    friendList.innerHTML += friend + "<br>"
+            let currentUser = new FAJAX();
+            currentUser.open("get","currentUser");
+            currentUser.onload = function(){
+                if (obj[currentUser.response]) {
+                    for (let friend of obj[currentUser.response]) {
+                        friendList.innerHTML += friend + "<br>"
+                    }
                 }
             }
+            currentUser.send();
         }
     }
     Fajax.send();

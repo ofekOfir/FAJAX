@@ -4,7 +4,6 @@ class Server {
          return this.postUserName(network.data);
       }
       else if (method === "post" && url === "newUser") {
-         console.log(network.data);
          return this.postTolocalStorage(network.data);
 
       }
@@ -13,6 +12,10 @@ class Server {
       }
       else if (method === "delete" && url === "removeFriend") {
          return this.deleteFriendFunction(network.data);
+      }
+      else if(method === "delete" && url === "removeCurrentUser"){
+         return this.deleteCurrentUser();
+
       }
       else if (method === "get" && url === "callFriendList") {
          return this.getFriends();
@@ -24,7 +27,6 @@ class Server {
    }
 
    postUserName(linkObj) {
-      console.log("server getting true/false from the database " + dataBase.userNameExists(linkObj));
       return dataBase.userNameExists(linkObj);
    }
    postTolocalStorage(linkObj) {
@@ -36,12 +38,16 @@ class Server {
    deleteFriendFunction(linkObj) {
       return dataBase.removeFriendFunction(linkObj.userName, linkObj.friendName);
    }
+   deleteCurrentUser(){
+      return dataBase.removeCurrentUser();
+   }
    getFriends() {
       return dataBase.friendsList();
    }
    getCurrentUser(){
       return dataBase.currentUser();
    }
+
 }
 
 

@@ -49,11 +49,11 @@ class DataBase {
         let contactArr = JSON.parse(localStorage.getItem('contacts'));
         for (let i in contactArr) {
             if (contactArr[i][name]) {
-                let index = contactArr[i][name].indexOf(prompt)
+                let index = contactArr[i][name].indexOf(prompt);
                 if (index > -1)
                     contactArr[i][name].splice(index, 1);
                 else {
-                    alert('You have no such friend, you fiend, you liar, you scoundrel')
+                    alert('You have no such friend, you fiend, you liar, you scoundrel');
                 }
             }
         }
@@ -61,7 +61,10 @@ class DataBase {
     }
 
     currentUser(){
-        return localStorage.getItem("onlineUser")
+        return localStorage.getItem("onlineUser");
+    }
+    removeCurrentUser(){
+        return localStorage.removeItem("onlineUser");
     }
 
 
