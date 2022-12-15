@@ -4,6 +4,7 @@ class DataBase {
         let localStorageArr = JSON.parse(localStorage.getItem("users"));
         for (let i = 0; i < localStorageArr.length; i++) {
             if (userObj.name === localStorageArr[i].name && userObj.password === localStorageArr[i].password) {
+                localStorage.setItem('onlineUser',userObj.name);
                 return true;
             }
         }
@@ -57,6 +58,10 @@ class DataBase {
             }
         }
         localStorage.setItem('contacts', JSON.stringify(contactArr));
+    }
+
+    currentUser(){
+        return localStorage.getItem("onlineUser")
     }
 
 

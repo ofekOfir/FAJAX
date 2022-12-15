@@ -56,7 +56,10 @@ function callAllFriends() {
     Fajax.onload = function () {
         let contacts = Fajax.response;
         for (let obj of contacts) {
+            console.log("k");
+
             if (obj[loginUserName.value]) {
+                console.log("keer");
                 for (let friend of obj[loginUserName.value]) {
                     friendList.innerHTML += friend + "<br>"
                 }
@@ -93,4 +96,6 @@ function removeFriendFunction() {
     Fajax.send(removeFriend);
 }
 
-
+// function createNewFajax(){
+    
+// }

@@ -16,6 +16,9 @@ class Server {
       }
       else if (method === "get" && url === "callFriendList") {
          return this.getFriends();
+      }  
+      else if (method === 'get' && url === "currentUser"){
+         return this.getCurrentUser();
       }
 
    }
@@ -35,6 +38,9 @@ class Server {
    }
    getFriends() {
       return dataBase.friendsList();
+   }
+   getCurrentUser(){
+      return dataBase.currentUser();
    }
 }
 
