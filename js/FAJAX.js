@@ -6,7 +6,8 @@ class FAJAX {
 
     send(obj = {}) {
         this.data = obj;
-        this.response = server.serving(this.method, this.url);
+        network.recieveInformation(this.method, this.url, this.data);
+        this.response = network.sendInformation();
         return this.onload();
     }
 }

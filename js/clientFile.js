@@ -70,14 +70,15 @@ function callAllFriends() {
 function addFriendFunction() {
     let friendPrompt = prompt("Type In your new friend");
     let addFriend = { userName: loginUserName.value, friendName: friendPrompt };
-    Fajax = new FAJAX();
-    Fajax.open("post", "addFriend")
-    Fajax.onload = function () {
-        if (friendPrompt.length > 0) {
+    if (friendPrompt.length > 0) {
+        Fajax = new FAJAX();
+        Fajax.open("post", "addFriend")
+        Fajax.onload = function () {
             Fajax.response;
+
         }
+        Fajax.send(addFriend);
     }
-    Fajax.send(addFriend);
 }
 
 

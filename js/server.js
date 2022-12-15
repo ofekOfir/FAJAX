@@ -1,18 +1,18 @@
 class Server {
    serving(method = true, url) {
       if (method === "post" && url === "checkIfUserExists") {
-         return this.postUserName(Fajax.data);
+         return this.postUserName(network.data);
       }
       else if (method === "post" && url === "newUser") {
-         console.log(Fajax.data);
-         return this.postTolocalStorage(Fajax.data);
+         console.log(network.data);
+         return this.postTolocalStorage(network.data);
 
       }
       else if (method === "post" && url === "addFriend") {
-         return this.postAddFriendFunction(Fajax.data);
+         return this.postAddFriendFunction(network.data);
       }
       else if (method === "delete" && url === "removeFriend") {
-         return this.deleteFriendFunction(Fajax.data);
+         return this.deleteFriendFunction(network.data);
       }
       else if (method === "get" && url === "callFriendList") {
          return this.getFriends();

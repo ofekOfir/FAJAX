@@ -35,7 +35,6 @@ function switchTemp(event) {
         regButton.addEventListener('click', createNewClient);
     }
     else if (location.hash == "#login") {
-        console.log(checkIfUserExists());
         if (checkIfUserExists())
             show("game");
         else {
@@ -55,7 +54,18 @@ function popping() {
     show(newHash);
 }
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', keepEvents)
+window.addEventListener('load',keepEvents)
+
+
+
+let dataBase = new DataBase();
+let server = new Server();
+let Fajax = new FAJAX();
+let network = new Network();
+
+
+function keepEvents(){
     console.log("dfdf")
     butArray = document.querySelectorAll('.changePage')
     for (let but of butArray) {
@@ -73,10 +83,4 @@ window.addEventListener('hashchange', () => {
         removeFriendBtn.addEventListener("click", removeFriendFunction);
         getAllFriendsBtn.addEventListener('click', callAllFriends)
     }
-})
-
-
-
-let dataBase = new DataBase();
-let server = new Server();
-let Fajax = new FAJAX();
+}
