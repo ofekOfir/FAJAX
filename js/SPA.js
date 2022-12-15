@@ -90,4 +90,15 @@ function keepEvents(){
         }
         Fajax.send();
     }
+    if(location.hash=="#game"){
+        let far = new FAJAX();
+        far.open("get", "currentUser");
+        far.onload = function(){
+         if(!far.response){
+            location.hash="#login"
+         }
+        }
+        far.send();
+    }
+    
 }

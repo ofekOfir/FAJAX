@@ -15,16 +15,15 @@
         <style>
             @import url('/css/login.css');
         </style>
-        <h1>Login</h1>
         <form>
-            <h3>please sign in</h3>
-            <label>user name</label>
+            <h3>login</h3>
+            <label>username</label>
             <input type="text" id="loginUserName" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <label>password</label>
             <input type="password" id="loginPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <button type="button" id="btnToApp">enter</button>
+            <button class="changePage">click here to sign up</button>
         </form>
-        <button class="changePage">click here to sign up</button>
     </template>
     <template id="game">
         <style>
@@ -45,16 +44,15 @@
             @import url('/css/register.css');
         </style>
 
-        <h1>Register</h1>
         <form>
-            <h3>please signup</h3>
-            <label>user name</label>
+            <h3>Register</h3>
+            <label>username</label>
             <input type="text" id="registerUserName" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <label>password</label>
             <input type="password" id="registerPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <button type="button" id="regButton">register</button>
+            <button type="button" class="changePage button-3">click here to login</button>
         </form>
-        <button type="button" class="changePage button-3">click here to login</button>
     </template>
 
     <script src="/js/dataBase.js"></script>
