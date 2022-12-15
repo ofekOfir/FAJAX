@@ -22,9 +22,9 @@
             <input type="text" id="loginUserName" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <label>password</label>
             <input type="password" id="loginPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
-            <button type="button"  id="btnToApp">enter</button>
+            <button type="button" id="btnToApp">enter</button>
         </form>
-        <button class="changePage" >click here to sign up</button>
+        <button class="changePage">click here to sign up</button>
     </template>
     <template id="game">
         <style>
@@ -32,16 +32,17 @@
         </style>
         <h1>App</h1>
         <div id="buttonArea">
-        <button id="getAllFriends">show them</button>
-        <button id="removeFriend">remove 1</button>
-        <button id="addFriend">add 1</button></div>
+            <button id="getAllFriends">show them</button>
+            <button id="removeFriend">remove 1</button>
+            <button id="addFriend">add 1</button>
+        </div>
         <div id="friendList"></div>
-        <button class="changePage" >click here to login</button>
+        <button class="changePage">click here to login</button>
     </template>
 
     <template id="signUp">
         <style>
-        @import url('/css/register.css');
+            @import url('/css/register.css');
         </style>
 
         <h1>Register</h1>
@@ -53,15 +54,14 @@
             <input type="password" id="registerPassword" pattern="[a-zA-Z]{4,}[0-9]{1,}" required>
             <button type="button" id="regButton">register</button>
         </form>
-        <button type="button" class="changePage" >click here to login</button>
+        <button type="button" class="changePage">click here to login</button>
     </template>
-    
-    <!-- <script src="/js/register.js"></script>
-        <script src="/js/login.js"></script> -->
-        <script src="/js/dataBase.js"></script>
-        <script src="/js/server.js"></script>
-        <script src="/js/clientFile.js"></script>
-        <script src="/js/SPA.js"></script>
-    </body>
+
+    <script src="/js/dataBase.js"></script>
+    <script src="/js/server.js"></script>
+    <script src="/js/FAJAX.js"></script>
+    <script src="/js/clientFile.js"></script>
+    <script src="/js/SPA.js"></script>
+</body>
 
 </html>

@@ -1,8 +1,6 @@
-
-
 class DataBase {
-    
-    postUserName(userObj) {
+
+    userNameExists(userObj) {
         let localStorageArr = JSON.parse(localStorage.getItem("users"));
         for (let i = 0; i < localStorageArr.length; i++) {
             if (userObj.name === localStorageArr[i].name && userObj.password === localStorageArr[i].password) {
@@ -11,11 +9,11 @@ class DataBase {
         }
         return false;
     }
-   GetFriends() {
+    friendsList() {
         let contacts = JSON.parse(localStorage.getItem('contacts'));
         return contacts;
     }
-    postToLocalStorage(newClient) {
+    toLocalStorage(newClient) {
         if (!localStorage.getItem("users") || !localStorage.getItem("contacts")) {
             localStorage.setItem("users", "[]");
             localStorage.setItem("contacts", "[]");
@@ -37,7 +35,7 @@ class DataBase {
         return check;
     }
 
-    postAddFriendFunction(name, prompt) {
+    addFriendFunction(name, prompt) {
         let contactArr = JSON.parse(localStorage.getItem('contacts'));
         for (let obj of contactArr) {
             if (obj[name]) {
@@ -46,7 +44,7 @@ class DataBase {
         }
         localStorage.setItem('contacts', JSON.stringify(contactArr));
     }
-    postRemoveFriendFunction(name, prompt) {
+    removeFriendFunction(name, prompt) {
         let contactArr = JSON.parse(localStorage.getItem('contacts'));
         for (let i in contactArr) {
             if (contactArr[i][name]) {
@@ -60,6 +58,6 @@ class DataBase {
         }
         localStorage.setItem('contacts', JSON.stringify(contactArr));
     }
-    
+
 
 }

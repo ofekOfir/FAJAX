@@ -1,15 +1,15 @@
+
 let loginUserName = "";
 let loginPassword = "";
 let friendList = "";
-// // let localStorageArr = [];
-let newClient = {};
+let newUser = {};
 
 
 class user {
     constructor(name, password) {
         this.name = name;
         this.password = password;
-        this.id = "newClient";
+        this.id = "newUser";
         this.friends = { [name]: [] };
     }
 }
@@ -18,8 +18,15 @@ function checkIfUserExists() {
     // creates the elements
     loginUserName = document.getElementById("loginUserName");
     loginPassword = document.getElementById("loginPassword");
-    let userObj = { name: loginUserName.value, password: loginPassword.value, id:"checkIfUserExists" }
-    return server.serving(userObj);
+    let userExists = false;
+    let userObj = { name: loginUserName.value, password: loginPassword.value };
+    Fajax = new FAJAX();
+    Fajax.open("post", "checkIfUserExists");
+    Fajax.onload = function () {
+        userExists = Fajax.response;
+    }
+    Fajax.send(userObj);
+    return userExists;
 }
 
 function createNewClient() {
@@ -27,44 +34,62 @@ function createNewClient() {
     let regPassword = document.querySelector("#registerPassword");
     let regUserName = document.getElementById("registerUserName");
     //Creat the new client if there not existing one;
-    newClient = new user(regUserName.value, regPassword.value);
-    let response = server.serving(newClient);
-    if (regPassword.value.length > 0 && regUserName.value.length > 0 && response) {
-        switchTemp();
+    newUser = new user(regUserName.value, regPassword.value);
+    Fajax = new FAJAX();
+    Fajax.open("post", "newUser")
+    Fajax.onload = function () {
+        if (regPassword.value.length > 0 && regUserName.value.length > 0 && Fajax.response) {
+            switchTemp();
+        }
+        else {
+            alert("This username already exists, YOU CHEAT, YOU LIAR, YOU SCOUNDREL YOU!!")
+        }
     }
-    else {
-        alert("This username already exists, YOU CHEAT, YOU LIAR, YOU SCOUNDREL YOU!!")
-    }
+    Fajax.send(newUser);
 }
 
 function callAllFriends() {
     friendList = document.getElementById("friendList");
     friendList.innerHTML = "";
-    let contacts = dataBase.GetFriends();
-    for (let obj of contacts) {
-        if (obj[loginUserName.value]) {
-            for (let friend of obj[loginUserName.value]) {
-                friendList.innerHTML += friend + "<br>"
+    Fajax = new FAJAX();
+    Fajax.open("get", "callFriendList");
+    Fajax.onload = function () {
+        let contacts = Fajax.response;
+        for (let obj of contacts) {
+            if (obj[loginUserName.value]) {
+                for (let friend of obj[loginUserName.value]) {
+                    friendList.innerHTML += friend + "<br>"
+                }
             }
         }
     }
+    Fajax.send();
 }
 
 
 function addFriendFunction() {
     let friendPrompt = prompt("Type In your new friend");
-    let addFriend = {userName: loginUserName.value, friendName: friendPrompt, id:"addFriend"};
-    if (friendPrompt.length > 0) {
-        server.serving(addFriend);
+    let addFriend = { userName: loginUserName.value, friendName: friendPrompt };
+    Fajax = new FAJAX();
+    Fajax.open("post", "addFriend")
+    Fajax.onload = function () {
+        if (friendPrompt.length > 0) {
+            Fajax.response;
+        }
     }
+    Fajax.send(addFriend);
 }
 
 
 function removeFriendFunction() {
     let friendPrompt = prompt("which friend would you like TO DESTROY!!!!!");
-    let removeFriend = {userName: loginUserName.value, friendName: friendPrompt, id:"removeFriend"}
-    server.serving(removeFriend);
+    let removeFriend = { userName: loginUserName.value, friendName: friendPrompt }
+    Fajax = new FAJAX();
+    Fajax.open("delete", "removeFriend")
+    Fajax.onload = function () {
+        Fajax.data;
+    }
+    Fajax.send(removeFriend);
 }
 
-// let dataBase = new DataBase();
 

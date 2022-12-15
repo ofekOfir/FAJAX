@@ -1,14 +1,9 @@
 let regButton = "";
 let loginBtn = "";
-let switchers = "";
 let getAllFriendsBtn = "";
 let addFriendBtn = "";
 let removeFriendBtn = "";
-// let loginUserName = "";
-// let loginPassword = "";
-// let friendList = "";
-// // let localStorageArr = [];
-// let newClient = {};
+
 
 if (location.hash == "") {
     show("login")
@@ -26,10 +21,6 @@ if (loginBtn)
 history.replaceState({}, "", location.hash)
 addEventListener('popstate', popping);
 
-// for(let x of butArray){
-//     x.addEventListener('click',switchTemp)
-// }
-// getUserName();
 function show(id) {
     location.hash = `#${id}`;
     let template = document.getElementById(id).innerHTML;
@@ -44,6 +35,7 @@ function switchTemp(event) {
         regButton.addEventListener('click', createNewClient);
     }
     else if (location.hash == "#login") {
+        console.log(checkIfUserExists());
         if (checkIfUserExists())
             show("game");
         else {
@@ -55,10 +47,6 @@ function switchTemp(event) {
     }
     else if (location.hash == "#game") {
         show("login");
-        // addFriendBtn = document.getElementById("addFriend");
-        // removeFriendBtn = document.getElementById("removeFriend");
-        // getAllFriendsBtn = document.getElementById("getAllFriends");
-        // addFriendBtn.addEventListener("click", addFriendF);
     }
 }
 
@@ -83,7 +71,7 @@ window.addEventListener('hashchange', () => {
     if (getAllFriendsBtn && removeFriendBtn && addFriendBtn) {
         addFriendBtn.addEventListener("click", addFriendFunction);
         removeFriendBtn.addEventListener("click", removeFriendFunction);
-        getAllFriendsBtn.addEventListener('click',callAllFriends)
+        getAllFriendsBtn.addEventListener('click', callAllFriends)
     }
 })
 
@@ -91,3 +79,4 @@ window.addEventListener('hashchange', () => {
 
 let dataBase = new DataBase();
 let server = new Server();
+let Fajax = new FAJAX();
